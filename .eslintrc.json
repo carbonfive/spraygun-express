@@ -1,0 +1,21 @@
+{
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": ["jest", "prettier"],
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "no-var": "error",
+    "prettier/prettier": "error"
+  },
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "prettier"]
+}

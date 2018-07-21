@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.3
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock"}}
+          - v1-dependencies-{{ arch }}-
+
+      - run: if [[ $(yarn --version) != "1.7.0" ]]; then sudo npm install -g yarn@1.7.0; fi
+      - run: yarn install
+
+      - save_cache:
+          key: v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock"}}
+          paths:
+            - ./node_modules
+            - ./client/node_modules
+
+      - run: yarn lint
+
+      - run:
+          name: yarn test
+          command: yarn test --ci --color --watch=false --reporters=default --reporters=jest-junit --runInBand
+          environment:
+            JEST_JUNIT_OUTPUT: ./tmp/test-results/jest.xml
+
+      - store_test_results:
+          path: ./tmp/test-results
