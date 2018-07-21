@@ -4,6 +4,10 @@
     "jest": true,
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
   "plugins": ["jest", "prettier"],
   "rules": {
     "no-unused-vars": [
