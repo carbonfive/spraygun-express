@@ -6,7 +6,8 @@
     "dev": "nodemon app/server.js",
     "lint": "eslint 'app/**/*.js'",
     "start": "node app/server.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test:all": "jest"
   },
   "dependencies": {
     "express": "^4.16.3",
