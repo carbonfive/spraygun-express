@@ -1,4 +1,8 @@
-require("@app/env");
+require("./env");
+
+exports.logger = {
+  enabled: process.env.NODE_ENV !== "test"
+};
 
 exports.express = {
   logFormat: process.env.NODE_ENV === "production" ? "combined" : "dev",

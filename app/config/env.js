@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const DOTENV_PATH = path.resolve(__dirname, "..", ".env");
+const DOTENV_PATH = path.resolve(__dirname, "../..", ".env");
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
