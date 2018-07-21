@@ -7,7 +7,11 @@
     "lint": "eslint 'app/**/*.js'",
     "start": "node app/server.js",
     "test": "jest --watch",
-    "test:all": "jest --coverage"
+    "test:all": "jest --coverage",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "app/**/*.js": "eslint"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -22,8 +26,10 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "husky": "^0.14.3",
     "jest": "^23.4.1",
     "jest-junit": "^5.1.0",
+    "lint-staged": "^7.2.0",
     "nodemon": "^1.18.3",
     "prettier": "^1.13.7",
     "supertest": "^3.1.0"
