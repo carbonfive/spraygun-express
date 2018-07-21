@@ -11,14 +11,14 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock"}}
+          - v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
           - v1-dependencies-{{ arch }}-
 
       - run: if [[ $(yarn --version) != "1.7.0" ]]; then sudo npm install -g yarn@1.7.0; fi
       - run: yarn install
 
       - save_cache:
-          key: v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock"}}
+          key: v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
             - ./client/node_modules
