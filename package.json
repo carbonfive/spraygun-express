@@ -7,7 +7,7 @@
     "lint": "eslint 'app/**/*.js'",
     "start": "node app/server.js",
     "test": "jest --watch",
-    "test:all": "jest"
+    "test:all": "jest --coverage"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -40,7 +40,7 @@
       "app"
     ],
     "moduleNameMapper": {
-      "^@app/(.*)$": "<rootDir>/app/$1"
+      "^@app(.*)$": "<rootDir>/app$1"
     }
   }
 }
