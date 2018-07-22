@@ -14,7 +14,14 @@ jobs:
           - v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
           - v1-dependencies-{{ arch }}-
 
-      - run: if [[ $(yarn --version) != "1.7.0" ]]; then sudo npm install -g yarn@1.7.0; fi
+      - run:
+          name: npm install yarn
+          command: |
+            YARN_VERSION=1.7.0
+            if [[ $(yarn --version) != $YARN_VERSION ]]; then
+              sudo npm install -g yarn@$YARN_VERSION;
+            fi
+
       - run: yarn install
 
       - save_cache:

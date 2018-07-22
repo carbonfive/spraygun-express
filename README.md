@@ -1,4 +1,4 @@
-# App Prototype
+# app-prototype
 
 This is an NodeJS Express app that publishes a JSON API.
 
