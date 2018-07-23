@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon app/server.js",
+    "dev": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
     "lint": "eslint 'app/**/*.js'",
     "start": "node app/server.js",
     "test": "jest --watch",
