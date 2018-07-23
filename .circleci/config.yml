@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: yarn test
-          command: yarn test:all --ci --color --reporters=default --reporters=jest-junit --runInBand
+          command: yarn test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
           environment:
             JEST_JUNIT_OUTPUT: ./tmp/test-results/jest.xml
 
