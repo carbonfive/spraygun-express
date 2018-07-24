@@ -10,7 +10,7 @@ describe("GET /api/secret", () => {
 
   describe("when authenticated", () => {
     beforeEach(() => {
-      return agent.post("/auth/login");
+      return agent.post("/api/login").set("Content-Type", "application/json");
     });
 
     it("responds with JSON", () => {

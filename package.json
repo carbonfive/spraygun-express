@@ -14,11 +14,15 @@
     "app/**/*.js": "eslint"
   },
   "dependencies": {
-    "client-sessions": "^0.8.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "helmet": "^3.12.2",
+    "jsonwebtoken": "^8.3.0",
     "module-alias": "^2.1.0",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "winston": "^3.0.0"
   },
   "devDependencies": {

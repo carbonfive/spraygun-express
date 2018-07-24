@@ -18,6 +18,12 @@ exports.express = {
   port: process.env.PORT || 5000
 };
 
-exports.session = {
-  secret: mandatory("SESSION_SECRET")
+exports.cookie = {
+  secure: !process.env.DISABLE_SECURE_COOKIES
+};
+
+exports.jwt = {
+  cookie: "jwt",
+  duration: "1 hour",
+  secret: mandatory("JWT_SECRET")
 };
