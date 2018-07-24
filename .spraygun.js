@@ -1,3 +1,4 @@
+const fs = require("fs");
 const path = require("path");
 
 exports.setup = (projectDirectory, { chalk, shell }) => {
@@ -8,6 +9,12 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
   const yarnVersion = shell
     .exec("yarn --version", { silent: true })
     .stdout.trim();
+
+  const nodeSemver = nodeVersion.split(".");
+  if (nodeSemver[0] < 8 || (nodeSemver[0] === "8" && nodeSemver[1] < 10)) {
+    console.log(chalk.red("Node 8.10 or higher is needed for this template."));
+    process.exit(1);
+  }
 
   const replacements = [
     [/app-prototype/g, appName, "Dockerfile"],
@@ -29,6 +36,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
 
   shell.cd(projectDirectory);
   replacements.forEach(r => shell.sed("-i", ...r));
+  removeBanner();
   shell.rm("-rf", "node_modules");
   shell.rm("-rf", ".git");
   shell.exec("git init -q");
@@ -66,3 +74,9 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
 `
   );
 };
+
+function removeBanner() {
+  const text = fs.readFileSync("README.md", "utf8").toString();
+  const trimmed = text.replace(/[^]*<!--\s*END SPRAYGUN BANNER\s*-->\s*/i, "");
+  fs.writeFileSync("README.md", trimmed, "utf8");
+}

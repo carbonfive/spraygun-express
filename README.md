@@ -1,6 +1,33 @@
+# spraygun-express
+
+This is a Carbon Five-flavored convenience skeleton project for Express, ideal for building JSON APIs for single-page apps (SPAs).
+
+- Jest and supertest to enable fast TDD
+- Dotenv for easy 12-factor config
+- ESLint/Prettier with enforcement pre-commit hooks
+- Async/await support
+- Well-organized for small and medium-sized projects
+- Cookie-based JWT auth optimized for easy creation of SPAs
+- Best practices for security (helmet, CSRF protection)
+- CI testing via Circle CI
+- Deployable to Heroku out of the box
+- Or deploy via docker using the included Dockerfile
+
+To get started, make sure you have Node and Yarn installed, and then generate your project like this:
+
+```
+$ npx spraygun <project-directory> express
+```
+
+_Below this line is the README that will accompany your generated project._
+
+---
+
+<!-- END SPRAYGUN BANNER -->
+
 # app-prototype
 
-This is an NodeJS Express app that publishes a JSON API.
+This is a NodeJS Express app that publishes a JSON API.
 
 ## Prerequisites
 
