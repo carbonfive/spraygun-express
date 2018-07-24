@@ -7,8 +7,7 @@ const logger = createLogger({
       format: format.simple(),
       silent: !config.logger.enabled
     })
-  ],
-  exceptionHandlers: [new transports.Console({ format: format.simple() })]
+  ]
 });
 
 module.exports = logger;
