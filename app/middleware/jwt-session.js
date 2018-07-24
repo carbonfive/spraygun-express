@@ -4,22 +4,24 @@
 // meaning the user's session will disappear upon closing their browser.
 
 const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
+const sign = promisify(jwt.sign);
 const passport = require("passport");
 const { Strategy: JwtStrategy } = require("passport-jwt");
 const config = require("@app/config");
 
-function login(req, res, user) {
-  setCookie(res, user);
+async function login(req, res, user) {
+  await setCookie(res, user);
 }
 
-function logout(req, res) {
-  setCookie(res, null);
+async function logout(req, res) {
+  await setCookie(res, null);
 }
 
-function setCookie(res, user) {
+async function setCookie(res, user) {
   let token = null;
   if (user) {
-    token = jwt.sign({ sub: user.id }, config.jwt.secret, {
+    token = await sign({ sub: user.id }, config.jwt.secret, {
       expiresIn: config.jwt.duration
     });
   }
@@ -67,9 +69,12 @@ function authenticate(req, res, next) {
 
     // Extend the lifetime of the token (if present)
     if (req && req.cookies && req.cookies[config.jwt.cookie]) {
-      setCookie(res, user);
+      setCookie(res, user)
+        .then(() => next())
+        .catch(next);
+    } else {
+      next();
     }
-    next();
   })(req, res, next);
 }
 
