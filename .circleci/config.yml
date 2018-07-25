@@ -29,7 +29,6 @@ jobs:
           key: v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-            - ./client/node_modules
 
       - run: yarn lint
 
