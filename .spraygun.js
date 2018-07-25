@@ -22,6 +22,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
     [/app-prototype/g, appName, "package.json"],
     [/"node": "\d+\.\d+\.\d+"/, `"node": "${nodeVersion}"`, "package.json"],
     [/node:\d+\.\d+\.\d+/, `node:${nodeVersion}`, "Dockerfile"],
+    [/nodejs \d+\.\d+\.\d+/, `nodejs ${nodeVersion}`, ".tool-versions"],
     [/node:\d+\.\d+\.\d+/, `node:${nodeVersion}`, ".circleci/config.yml"],
     [/Node \d+\.\d+\.\d+/gi, `Node ${nodeVersion}`, "README.md"],
     [/"yarn": "\d+\.\d+\.\d+"/, `"yarn": "${yarnVersion}"`, "package.json"],
