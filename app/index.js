@@ -1,4 +1,6 @@
+const path = require("path");
 const express = require("express");
+const config = require("@app/config");
 const handleAsync = require("@app/middleware/handle-async");
 const session = require("@app/middleware/jwt-session");
 const auth = session.authenticate;
@@ -18,6 +20,14 @@ app.post("/api/login", handleAsync(require("@app/controllers/auth").login));
 app.post("/api/logout", handleAsync(require("@app/controllers/auth").logout));
 app.get("/api/hello", handleAsync(require("@app/controllers/hello")));
 app.get("/api/secret", auth, handleAsync(require("@app/controllers/secret")));
+
+// Serve static files
+if (config.express.staticRoot) {
+  app.use(express.static(config.express.staticRoot));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(config.express.staticRoot, "index.html"));
+  });
+}
 
 // These must go last
 app.use(handleAsync(require("@app/controllers/not-found")));
