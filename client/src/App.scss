@@ -1,0 +1,36 @@
+$gray-22: #222;
+$white: white;
+
+.App {
+  text-align: center;
+
+  &__logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+
+  &__header {
+    background-color: $gray-22;
+    height: 150px;
+    padding: 20px;
+    color: $white;
+  }
+
+  &__title {
+    font-size: 1.5em;
+  }
+
+  &__intro {
+    font-size: large;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
