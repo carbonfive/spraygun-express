@@ -56,5 +56,6 @@
       "src/**/*.{js,jsx}",
       "!src/registerServiceWorker.js"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
