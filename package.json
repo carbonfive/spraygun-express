@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
-    "lint": "eslint 'app/**/*.js'",
+    "start": "concurrently -k -r npm:client:start npm:server:start",
+    "lint": "npm-run-all -c client:lint server:lint",
+    "test": "npm-run-all -c client:test:coverage server:test:coverage",
     "server": "node app/server.js",
-    "test": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "precommit": "lint-staged"
+    "postinstall": "cd client && yarn install",
+    "precommit": "npm-run-all -c client:precommit server:precommit",
+    "heroku-postbuild": "cd client && npm-run-all heroku-postbuild",
+    "client:start": "cd client && npm-run-all start",
+    "client:lint": "cd client && npm-run-all lint",
+    "client:test": "cd client && npm-run-all test",
+    "client:test:coverage": "cd client && npm-run-all test:coverage",
+    "client:precommit": "cd client && npm-run-all precommit",
+    "server:start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
+    "server:lint": "eslint 'app/**/*.js'",
+    "server:test": "jest --watch",
+    "server:test:coverage": "jest --coverage",
+    "server:precommit": "lint-staged"
   },
   "lint-staged": {
     "app/**/*.js": "eslint"
@@ -26,6 +37,7 @@
     "winston": "^3.0.0"
   },
   "devDependencies": {
+    "concurrently": "^3.6.1",
     "dotenv": "^6.0.0",
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -36,6 +48,7 @@
     "jest-junit": "^5.1.0",
     "lint-staged": "^7.2.0",
     "nodemon": "^1.18.3",
+    "npm-run-all": "^4.1.3",
     "prettier": "^1.13.7",
     "supertest": "^3.1.0"
   },

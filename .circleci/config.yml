@@ -33,10 +33,16 @@ jobs:
       - run: yarn lint
 
       - run:
-          name: yarn test
-          command: yarn test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
+          name: yarn client:test
+          command: cd client && yarn test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
           environment:
-            JEST_JUNIT_OUTPUT: ./tmp/test-results/jest.xml
+            JEST_JUNIT_OUTPUT: ../tmp/test-results/jest-client.xml
+
+      - run:
+          name: yarn server:test
+          command: yarn server:test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
+          environment:
+            JEST_JUNIT_OUTPUT: ./tmp/test-results/jest-server.xml
 
       - store_test_results:
           path: ./tmp/test-results
