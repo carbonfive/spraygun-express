@@ -66,5 +66,9 @@
     "moduleNameMapper": {
       "^@app(.*)$": "<rootDir>/app$1"
     }
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ]
 }
