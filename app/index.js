@@ -19,7 +19,8 @@ app.post("/api/logout", handleAsync(require("@app/controllers/auth").logout));
 app.get("/api/hello", handleAsync(require("@app/controllers/hello")));
 app.get("/api/secret", auth, handleAsync(require("@app/controllers/secret")));
 
-// This must go last
+// These must go last
+app.use(handleAsync(require("@app/controllers/not-found")));
 app.use(require("@app/middleware/error"));
 
 module.exports = app;
