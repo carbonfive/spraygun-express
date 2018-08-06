@@ -51,8 +51,8 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
   {green Success!} Created ${appName} at ${appPath}
   Your new Express app contains several commands:
 
-    {cyan yarn dev}
-      Starts the Express server with auto-reloading
+    {cyan yarn start}
+      Starts the Express server with auto-reloading (suitable for development)
 
     {cyan yarn test}
       Starts the test runner
@@ -60,7 +60,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
     {cyan yarn lint}
       Runs lint checks
 
-    {cyan yarn start}
+    {cyan yarn server}
       Runs the Express server (suitable for production)
 
   Your app is deployable to Heroku and can build on Circle CI out of the box.
@@ -69,7 +69,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
   We suggest that you begin by typing:
 
     {cyan cd} ${projectDirectory}
-    {cyan yarn dev}
+    {cyan yarn start}
 
   Enjoy your Carbon Five flavored Express application!
 `

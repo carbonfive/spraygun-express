@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
+    "start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
     "lint": "eslint 'app/**/*.js'",
-    "start": "node app/server.js",
+    "server": "node app/server.js",
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
