@@ -17,7 +17,7 @@ jobs:
       - run:
           name: npm install yarn
           command: |
-            YARN_VERSION=1.7.0
+            YARN_VERSION=1.9.4
             if [[ $(yarn --version) != $YARN_VERSION ]]; then
               sudo npm install -g yarn@$YARN_VERSION;
               sudo chmod a+x /usr/local/bin/yarn
