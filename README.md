@@ -31,7 +31,7 @@ This is a NodeJS Express app that publishes a JSON API.
 
 ## Prerequisites
 
-- Node 8.11.3
+- Node 8.11.4
 - Yarn 1.9.4
 
 ## Quick start
