@@ -10,12 +10,6 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
     .exec("yarn --version", { silent: true })
     .stdout.trim();
 
-  const nodeSemver = nodeVersion.split(".");
-  if (nodeSemver[0] < 8 || (nodeSemver[0] === "8" && nodeSemver[1] < 10)) {
-    console.log(chalk.red("Node 8.10 or higher is needed for this template."));
-    process.exit(1);
-  }
-
   const replacements = [
     [/app-prototype/g, appName, "Dockerfile"],
     [/app-prototype/g, appName, "README.md"],
