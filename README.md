@@ -13,10 +13,10 @@ This is a Carbon Five-flavored convenience skeleton project for Express, ideal f
 - Deployable to Heroku out of the box
 - Or deploy via docker using the included Dockerfile
 
-To get started, make sure you have Node and Yarn installed, and then generate your project like this:
+To get started, make sure you have Node 8.10+ and Yarn installed, and then generate your project like this:
 
 ```
-$ npx spraygun <project-directory> express
+$ npx spraygun -t express <project-directory>
 ```
 
 _Below this line is the README that will accompany your generated project._
