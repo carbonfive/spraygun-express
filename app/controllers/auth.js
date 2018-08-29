@@ -1,11 +1,11 @@
-const { find, pick, whereEq } = require("ramda");
+const { find, matches, pick } = require("lodash");
 const session = require("@app/middleware/jwt-session");
 
 const users = [{ id: 1, email: "user@example.com", password: "secret" }];
 
 async function login(req, res) {
   const { email, password } = req.body;
-  const user = find(whereEq({ email, password }), users);
+  const user = find(users, matches({ email, password }));
 
   if (!user) {
     const error = new Error("Incorrect email and/or password");
@@ -14,7 +14,7 @@ async function login(req, res) {
   }
 
   await session.login(req, res, user);
-  res.json({ user: pick(["id", "email"], user) });
+  res.json({ user: pick(user, ["id", "email"]) });
 }
 
 async function logout(req, res, _next) {
