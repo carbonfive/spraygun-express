@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prestart": "node bin/pre-start",
     "start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
     "lint": "eslint 'app/**/*.js'",
     "server": "node app/server.js",
@@ -38,6 +39,7 @@
     "lint-staged": "^7.2.0",
     "nodemon": "^1.18.3",
     "prettier": "^1.13.7",
+    "shelljs": "^0.8.2",
     "supertest": "^3.1.0"
   },
   "engines": {
