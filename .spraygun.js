@@ -19,7 +19,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
     [/nodejs \d+\.\d+\.\d+/, `nodejs ${nodeVersion}`, ".tool-versions"],
     [/node:\d+\.\d+\.\d+/, `node:${nodeVersion}`, ".circleci/config.yml"],
     [/Node \d+\.\d+\.\d+/gi, `Node ${nodeVersion}`, "README.md"],
-    [/"yarn": "\d+\.\d+\.\d+"/, `"yarn": "${yarnVersion}"`, "package.json"],
+    [/"yarn": ">=\d+\.\d+\.\d+"/, `"yarn": ">=${yarnVersion}"`, "package.json"],
     [/yarn@\d+\.\d+\.\d+/, `yarn@${yarnVersion}`, "Dockerfile"],
     [
       /YARN_VERSION=\d+\.\d+\.\d+/,
