@@ -1,7 +1,7 @@
-FROM node:8.12.0-alpine
+FROM node:10.13.0-alpine
 WORKDIR /app-prototype
 COPY package.json yarn.lock ./
-RUN npx yarn@1.9.4 install --production
+RUN npx yarn@1.12.1 install --production
 COPY . .
 ENV NODE_ENV=production
 EXPOSE 5000
