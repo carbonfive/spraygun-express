@@ -26,7 +26,7 @@ yarn_anchors:
 jobs:
   test:
     docker:
-      - image: circleci/node:10.14.2
+      - image: circleci/node:10.15.0
     working_directory: ~/repo
     steps:
       - checkout
@@ -43,7 +43,7 @@ jobs:
           path: ./tmp/test-results
   lint:
     docker:
-      - image: circleci/node:10.14.2
+      - image: circleci/node:10.15.0
     working_directory: ~/repo
     steps:
       - checkout
@@ -54,7 +54,7 @@ jobs:
       - run: yarn lint
   audit:
     docker:
-      - image: circleci/node:10.14.2
+      - image: circleci/node:10.15.0
     working_directory: ~/repo
     steps:
       - checkout
