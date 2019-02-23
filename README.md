@@ -54,6 +54,12 @@ Verify it is working by making an HTTP request:
 
 <http://localhost:5000/api/hello>
 
+### Basic Auth
+
+Setting both BASIC_AUTH_USER and BASIC_AUTH_PASSWORD in your environment will enable
+basic auth for your app.
+
+
 ## Task reference
 
 - **`yarn start`** starts the Express server listing on port 5000. The server is automatically restarted whenever you make changes.
