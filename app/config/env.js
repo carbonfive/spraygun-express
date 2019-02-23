@@ -1,9 +1,8 @@
 // Extracted from create-react-app
 // https://github.com/facebook/create-react-app/blob/26f701fd60cece427d0e6c5a0ae98a5c79993640/packages/react-scripts/config/env.js
 
-const fs = require("fs");
 const path = require("path");
-
+const dotenv = require("dotenv");
 const DOTENV_PATH = path.resolve(__dirname, "../..", ".env");
 const NODE_ENV = process.env.NODE_ENV || "development";
 
@@ -23,7 +22,5 @@ const dotenvFiles = [
 // that have already been set.
 // https://github.com/motdotla/dotenv
 dotenvFiles.forEach(dotenvFile => {
-  if (fs.existsSync(dotenvFile)) {
-    require("dotenv").config({ path: dotenvFile });
-  }
+  dotenv.config({ path: dotenvFile });
 });
