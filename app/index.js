@@ -1,25 +1,13 @@
 const express = require("express");
 const handleAsync = require("@app/middleware/handle-async");
-const basicAuth = require("express-basic-auth");
 const session = require("@app/middleware/jwt-session");
 const auth = session.authenticate;
-const basicAuthCfg = require("@app/config").basicAuth;
 
 const app = express();
 
 app.use(require("helmet")());
 app.use(require("@app/middleware/logging"));
-
-if (basicAuthCfg.user && basicAuthCfg.password) {
-  app.use(
-    basicAuth({
-      users: {
-        [basicAuthCfg.user]: basicAuthCfg.password
-      },
-      challenge: true
-    })
-  );
-}
+app.use(require("@app/middleware/basic-auth"));
 
 app.use("/api/", require("cookie-parser")());
 app.use("/api/", require("@app/middleware/json-only"));
