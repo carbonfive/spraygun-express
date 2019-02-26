@@ -28,3 +28,8 @@ exports.jwt = {
   duration: "1 hour",
   secret: mandatory("JWT_SECRET")
 };
+
+exports.basicAuth = {
+  user: process.env.BASIC_AUTH_USER,
+  password: process.env.BASIC_AUTH_PASSWORD
+};
