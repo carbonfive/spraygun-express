@@ -30,7 +30,7 @@
   "devDependencies": {
     "dotenv": "^6.0.0",
     "eslint": "^5.14.1",
-    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.2.1",
