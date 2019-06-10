@@ -76,10 +76,15 @@ workflows:
               only:
                 - development
                 - master
+  cron:
+    jobs:
+      - test
+      - lint
+      - audit
     triggers:
       - schedule:
-        cron: "0 13 * * *"
-        filters:
-          branches:
-            only:
-              - master
+          cron: "0 13 * * *"
+          filters:
+            branches:
+              only:
+                - master
