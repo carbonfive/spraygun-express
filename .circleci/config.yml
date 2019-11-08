@@ -1,86 +1,58 @@
-version: 2
-
-yarn_anchors:
-  yarn_restore_cache: &yarn_restore_cache
-    restore_cache:
-      keys:
-        - v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
-        - v1-dependencies-{{ arch }}-
-  npm_install_yarn: &npm_install_yarn
-    run:
-      name: npm install yarn
-      command: |
-        YARN_VERSION=1.12.1
-        if [[ $(yarn --version) != $YARN_VERSION ]]; then
-          sudo npm install -g yarn@$YARN_VERSION;
-          sudo chmod a+x /usr/local/bin/yarn
-        fi
-  yarn_install: &yarn_install
-    run: yarn install
-  yarn_save_cache: &yarn_save_cache
-    save_cache:
-      key: v1-dependencies-{{ arch }}-{{ checksum "yarn.lock" }}
-      paths:
-        - ./node_modules
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 
 jobs:
-  test:
-    docker:
-      - image: circleci/node:10.15.0
-    working_directory: ~/repo
+  install_deps:
+    executor:
+      name: node/default
+      tag: "10.15.0"
     steps:
       - checkout
-      - *yarn_restore_cache
-      - *npm_install_yarn
-      - *yarn_install
-      - *yarn_save_cache
-      - run:
-          name: yarn test
-          command: yarn test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
-          environment:
-            JEST_JUNIT_OUTPUT: ./tmp/test-results/jest.xml
-      - store_test_results:
-          path: ./tmp/test-results
+      - node/with-cache:
+          steps:
+          - run: yarn install
   lint:
-    docker:
-      - image: circleci/node:10.15.0
-    working_directory: ~/repo
+    executor:
+      name: node/default
+      tag: "10.15.0"
     steps:
       - checkout
-      - *yarn_restore_cache
-      - *npm_install_yarn
-      - *yarn_install
-      - *yarn_save_cache
-      - run: yarn lint
-  audit:
-    docker:
-      - image: circleci/node:10.15.0
-    working_directory: ~/repo
+      - node/with-cache:
+          steps:
+          - run: yarn lint
+  unit_tests:
+    executor:
+      name: node/default
+      tag: "10.15.0"
     steps:
       - checkout
-      - *yarn_restore_cache
-      - *npm_install_yarn
-      - *yarn_install
-      - *yarn_save_cache
-      - run: yarn audit
+      - node/with-cache:
+          steps:
+          - run:
+              name: yarn test
+              command: yarn test:coverage --ci --color --reporters=default --reporters=jest-junit --runInBand
+              environment:
+                JEST_JUNIT_OUTPUT_DIR: ./tmp/test-results
+                JEST_JUNIT_OUTPUT_NAME: jest.xml
+          - store_test_results:
+              path: ./tmp/test-results
 
 workflows:
   version: 2
-  commit:
+  build:
     jobs:
-      - test
-      - lint
-      - audit:
-          filters:
-            branches:
-              only:
-                - development
-                - master
+      - install_deps
+      - lint:
+          requires:
+            - install_deps
+      - unit_tests:
+          requires:
+            - install_deps
   cron:
     jobs:
-      - test
+      - unit_tests
       - lint
-      - audit
     triggers:
       - schedule:
           cron: "0 13 * * *"
