@@ -33,7 +33,7 @@ This is a NodeJS Express app that publishes a JSON API.
 
 ## Prerequisites
 
-- Node 10.15.0
+- Node 12.13.1
 - Yarn 1.12.1 or higher
 
 ## Quick start
@@ -58,7 +58,6 @@ Verify it is working by making an HTTP request:
 
 Setting both BASIC_AUTH_USER and BASIC_AUTH_PASSWORD in your environment will enable
 basic auth for your app.
-
 
 ## Task reference
 
