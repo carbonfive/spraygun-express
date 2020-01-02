@@ -15,7 +15,9 @@ This is a Carbon Five-flavored convenience skeleton project for Express, ideal f
 - Deployable to Heroku out of the box
 - Or deploy via docker using the included Dockerfile
 
-To get started, make sure you have Node 8.10+ and Yarn installed, and then generate your project like this:
+This template purposely uses _pure_ Node: no webpack or any other preprocessor. This means that you can develop, test, and deploy with no build steps to run or configure! Modern version of Node have support for all the nice features of newer versions of JavaScript, like async/await, let/const, ES6 modules, object spread, default parameters, etc.
+
+To get started, make sure you have Node 8.10+ (12.13 is recommended) and Yarn installed, and then generate your project like this:
 
 ```
 $ npx spraygun -t express <project-directory>
@@ -58,7 +60,6 @@ Verify it is working by making an HTTP request:
 
 Setting both BASIC_AUTH_USER and BASIC_AUTH_PASSWORD in your environment will enable
 basic auth for your app.
-
 
 ## Task reference
 
