@@ -51,8 +51,13 @@ workflows:
             - install_deps
   cron:
     jobs:
-      - unit_tests
-      - lint
+      - install_deps
+      - lint:
+          requires:
+            - install_deps
+      - unit_tests:
+          requires:
+            - install_deps
     triggers:
       - schedule:
           cron: "0 13 * * *"
