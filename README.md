@@ -17,7 +17,7 @@ This is a Carbon Five-flavored convenience skeleton project for Express, ideal f
 
 This template purposely uses _pure_ Node: no webpack or any other preprocessor. This means that you can develop, test, and deploy with no build steps to run or configure! Modern version of Node have support for all the nice features of newer versions of JavaScript, like async/await, let/const, ES6 modules, object spread, default parameters, etc.
 
-To get started, make sure you have Node 8.10+ (12.13 is recommended) and Yarn installed, and then generate your project like this:
+To get started, make sure you have Node 10+ (12.x is recommended) and Yarn installed, and then generate your project like this:
 
 ```
 $ npx spraygun -t express <project-directory>
