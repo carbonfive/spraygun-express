@@ -39,6 +39,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
   shell.exec("git init -q");
   shell.exec("yarn install");
   shell.rm("-rf", ".spraygun.js");
+  shell.rm("-rf", ".github/CODEOWNERS");
   shell.rm("-rf", "LICENSE");
   shell.exec("git add -A .");
   shell.exec("git commit -n -q -m 'Init from spraygun template'");
