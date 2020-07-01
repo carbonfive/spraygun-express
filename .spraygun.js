@@ -37,6 +37,7 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
   shell.rm("-rf", "node_modules");
   shell.rm("-rf", ".git");
   shell.exec("git init -q");
+  shell.exec("git checkout -q -b main");
   shell.exec("yarn install");
   shell.rm("-rf", ".spraygun.js");
   shell.rm("-rf", ".github/CODEOWNERS");
