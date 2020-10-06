@@ -1,6 +1,6 @@
 # spraygun-express
 
-[![CircleCI](https://circleci.com/gh/carbonfive/spraygun-express/tree/main.svg?style=svg)](https://circleci.com/gh/carbonfive/spraygun-express/tree/main)
+[![CircleCI](https://circleci.com/gh/carbonfive/spraygun-express/tree/main.svg?style=shield)](https://circleci.com/gh/carbonfive/spraygun-express/tree/main)
 
 This is a Carbon Five-flavored convenience skeleton project for Express, ideal for building JSON APIs for single-page apps (SPAs).
 
