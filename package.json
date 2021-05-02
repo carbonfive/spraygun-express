@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "prestart": "node bin/pre-start",
     "start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
     "lint": "eslint 'app/**/*.js'",
@@ -33,7 +34,7 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.4.0",
+    "husky": "^6.0.0",
     "jest": "^24.8.0",
     "jest-junit": "^6.4.0",
     "lint-staged": "^8.2.0",
@@ -59,10 +60,5 @@
     "collectCoverageFrom": [
       "app/**/*.js"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
