@@ -5,9 +5,9 @@ const logger = createLogger({
   transports: [
     new transports.Console({
       format: format.simple(),
-      silent: !config.logger.enabled
-    })
-  ]
+      silent: !config.logger.enabled,
+    }),
+  ],
 });
 
 module.exports = logger;
