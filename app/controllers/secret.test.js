@@ -16,20 +16,18 @@ describe("GET /api/secret", () => {
         .set("Content-Type", "application/json");
     });
 
-    it("responds with JSON", () => {
-      return agent
-        .get("/api/secret")
-        .expect("Content-Type", /json/)
-        .expect(200);
+    it("responds with JSON", async () => {
+      const response = await agent.get("/api/secret");
+      expect(response.type).toMatch(/json/);
+      expect(response.statusCode).toEqual(200);
     });
   });
 
   describe("when not authenticated", () => {
-    it("responds with a 401 status", () => {
-      return agent
-        .get("/api/secret")
-        .expect("Content-Type", /json/)
-        .expect(401);
+    it("responds with a 401 status", async () => {
+      const response = await agent.get("/api/secret");
+      expect(response.type).toMatch(/json/);
+      expect(response.statusCode).toEqual(401);
     });
   });
 });
