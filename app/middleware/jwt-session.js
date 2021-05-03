@@ -22,13 +22,13 @@ async function setCookie(res, user) {
   let token = null;
   if (user) {
     token = await sign({ sub: user.id }, config.jwt.secret, {
-      expiresIn: config.jwt.duration
+      expiresIn: config.jwt.duration,
     });
   }
   res.cookie(config.jwt.cookie, token, {
     httpOnly: true,
     sameSite: true,
-    secure: config.cookie.secure
+    secure: config.cookie.secure,
   });
 }
 
@@ -48,14 +48,14 @@ function verify(jwtPayload, done) {
 
 const options = {
   secretOrKey: config.jwt.secret,
-  jwtFromRequest: extractFromCookie
+  jwtFromRequest: extractFromCookie,
 };
 
 const middleware = passport.initialize();
 passport.use(new JwtStrategy(options, verify));
 
 function authenticate(req, res, next) {
-  passport.authenticate("jwt", function(err, user) {
+  passport.authenticate("jwt", function (err, user) {
     if (err) {
       return next(err);
     }

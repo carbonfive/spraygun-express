@@ -6,7 +6,7 @@ describe("GET /what/ever", () => {
     return request(app)
       .get("/what/ever")
       .expect(404, {
-        error: { message: "No route found for GET /what/ever", status: 404 }
+        error: { message: "No route found for GET /what/ever", status: 404 },
       });
   });
 });

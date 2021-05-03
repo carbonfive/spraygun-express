@@ -14,13 +14,13 @@ const dotenvFiles = [
   // since normally you expect tests to produce the same
   // results for everyone
   NODE_ENV !== "test" && `${DOTENV_PATH}.local`,
-  DOTENV_PATH
+  DOTENV_PATH,
 ].filter(Boolean);
 
 // Load environment variables from .env* files. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
-dotenvFiles.forEach(dotenvFile => {
+dotenvFiles.forEach((dotenvFile) => {
   dotenv.config({ path: dotenvFile });
 });
