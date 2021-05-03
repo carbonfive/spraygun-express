@@ -1,15 +1,15 @@
 const basicAuth = require("express-basic-auth");
 
-let basicAuthMiddleware = function(user, pass) {
+let basicAuthMiddleware = function (user, pass) {
   if (user && pass) {
     return basicAuth({
       users: {
-        [user]: pass
+        [user]: pass,
       },
-      challenge: true
+      challenge: true,
     });
   } else {
-    return function(_req, _res, next) {
+    return function (_req, _res, next) {
       return next();
     };
   }

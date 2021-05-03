@@ -10,26 +10,26 @@ function mandatory(name) {
 }
 
 exports.logger = {
-  enabled: process.env.NODE_ENV !== "test"
+  enabled: process.env.NODE_ENV !== "test",
 };
 
 exports.express = {
   logFormat: process.env.NODE_ENV === "production" ? "combined" : "dev",
   port: process.env.PORT || 5000,
-  verbose404: !["production", "test"].includes(process.env.NODE_ENV)
+  verbose404: !["production", "test"].includes(process.env.NODE_ENV),
 };
 
 exports.cookie = {
-  secure: !process.env.DISABLE_SECURE_COOKIES
+  secure: !process.env.DISABLE_SECURE_COOKIES,
 };
 
 exports.jwt = {
   cookie: "jwt",
   duration: "1 hour",
-  secret: mandatory("JWT_SECRET")
+  secret: mandatory("JWT_SECRET"),
 };
 
 exports.basicAuth = {
   user: process.env.BASIC_AUTH_USER,
-  password: process.env.BASIC_AUTH_PASSWORD
+  password: process.env.BASIC_AUTH_PASSWORD,
 };
