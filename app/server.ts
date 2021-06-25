@@ -7,3 +7,5 @@ const logger = require("@app/logger");
 const port = config.express.port;
 
 app.listen(port, () => logger.info(`Listening on port ${port}`));
+
+export {};

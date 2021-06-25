@@ -5,9 +5,9 @@
   "scripts": {
     "prepare": "husky install",
     "prestart": "node bin/pre-start",
-    "start": "ts-node-dev --transpile-only --watch .,.env.development,.env.development.local app/server.js",
-    "lint": "eslint 'app/**/*.js'",
-    "server": "ts-node --transpile-only app/server.js",
+    "start": "ts-node-dev --transpile-only --watch .,.env.development,.env.development.local app/server.ts",
+    "lint": "eslint 'app/**/*.{js,ts}'",
+    "server": "ts-node --transpile-only app/server.ts",
     "test": "jest --watch",
     "test:coverage": "jest --coverage"
   },
@@ -60,7 +60,7 @@
       "^@app(.*)$": "<rootDir>/app$1"
     },
     "collectCoverageFrom": [
-      "app/**/*.js"
+      "app/**/*.{js,ts}"
     ]
   }
 }

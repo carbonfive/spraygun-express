@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "app",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "outDir": "build",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2020"
+  }
+}
