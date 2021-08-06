@@ -1,4 +1,4 @@
-FROM node:14.16.1-alpine
+FROM node:16.6.1-alpine
 WORKDIR /app-prototype
 COPY package.json yarn.lock ./
 RUN npx yarn@1.12.1 install --production
