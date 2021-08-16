@@ -25,14 +25,13 @@ exports.setup = (projectDirectory, { chalk, shell }) => {
     [
       /YARN_VERSION=\d+\.\d+\.\d+/,
       `YARN_VERSION=${yarnVersion}`,
-      ".circleci/config.yml"
+      ".circleci/config.yml",
     ],
     [/Yarn \d+\.\d+\.\d+/gi, `Yarn ${yarnVersion}`, "README.md"],
-    [/^yarn.lock$/, "", ".gitignore"]
   ];
 
   shell.cd(projectDirectory);
-  replacements.forEach(r => shell.sed("-i", ...r));
+  replacements.forEach((r) => shell.sed("-i", ...r));
   removeBanner();
   shell.rm("-rf", "node_modules");
   shell.rm("-rf", ".git");
