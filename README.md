@@ -35,8 +35,10 @@ This is a NodeJS Express app that publishes a JSON API.
 
 ## Prerequisites
 
-- Node 14
+- Node 14 (see [.node-version](./.node-version))
 - Yarn 1.12.1 or higher
+
+It is strongly recommended that you use a version manager like [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), or [asdf](https://asdf-vm.com/) to ensure the correct Node version. If you use asdf, make sure to add the nodejs plugin and [enable legacy version files](https://github.com/asdf-vm/asdf-nodejs#nvmrc-and-node-version-files).
 
 ## Quick start
 
