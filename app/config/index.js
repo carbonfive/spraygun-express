@@ -15,7 +15,7 @@ exports.logger = {
 
 exports.express = {
   logFormat: process.env.NODE_ENV === "production" ? "combined" : "dev",
-  port: process.env.PORT || 5000,
+  port: process.env.PORT || 3000,
   verbose404: !["production", "test"].includes(process.env.NODE_ENV),
 };
 
