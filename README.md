@@ -17,7 +17,7 @@ This is a Carbon Five-flavored convenience skeleton project for Express, ideal f
 
 This template purposely uses _pure_ Node: no webpack or any other preprocessor. This means that you can develop, test, and deploy with no build steps to run or configure! Modern version of Node have support for all the nice features of newer versions of JavaScript, like async/await, let/const, ES6 modules, object spread, default parameters, etc.
 
-To get started, make sure you have Node 14+ and Yarn installed, and then generate your project like this:
+To get started, make sure you have Node 16 and Yarn installed, and then generate your project like this:
 
 ```
 $ npx spraygun -t express <project-directory>
@@ -35,7 +35,7 @@ This is a NodeJS Express app that publishes a JSON API.
 
 ## Prerequisites
 
-- Node 14 (see [.node-version](./.node-version))
+- Node 16 (see [.node-version](./.node-version))
 - Yarn 1.12.1 or higher
 
 It is strongly recommended that you use a version manager like [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), or [asdf](https://asdf-vm.com/) to ensure the correct Node version. If you use asdf, make sure to add the nodejs plugin and [enable legacy version files](https://github.com/asdf-vm/asdf-nodejs#nvmrc-and-node-version-files).
