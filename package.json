@@ -43,6 +43,9 @@
     "shelljs": "^0.8.2",
     "supertest": "^6.1.6"
   },
+  "resolutions": {
+    "caniuse-lite": "^1.0.30001298"
+  },
   "engines": {
     "node": "^16.13.1",
     "yarn": ">=1.12.1"
