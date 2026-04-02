@@ -22,7 +22,7 @@
     "express-basic-auth": "^1.2.1",
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.18.1",
     "module-alias": "^2.2.0",
     "morgan": "^1.9.0",
     "passport": "^0.6.0",
