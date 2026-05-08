@@ -30,7 +30,7 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "eslint": "^8.27.0",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.1.5",
     "eslint-plugin-prettier": "^4.2.1",
